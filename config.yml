@@ -1,0 +1,16 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images" # المجلد الذي ستحفظ فيه صور الرخام
+public_folder: "/images"
+
+collections:
+  - name: "projects"
+    label: "مشاريع الرخام"
+    folder: "content/projects"
+    create: true
+    fields:
+      - {label: "عنوان المشروع", name: "title", widget: "string"}
+      - {label: "صورة العمل", name: "image", widget: "image"}
+      - {label: "وصف بسيط", name: "body", widget: "markdown"}
