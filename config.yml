@@ -7,11 +7,10 @@ public_folder: "/images"
 
 collections:
   - name: "projects"
-    label: "المشاريع"
+    label: "Projects"
     folder: "content/projects"
     create: true
     fields:
-      - {label: "عنوان المشروع", name: "title", widget: "string"}
-      - {label: "صورة العمل", name: "image", widget: "image"}
-      - {label: "وصف بسيط", name: "body", widget: "markdown"}
-      
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Image", name: "image", widget: "image"}
+      - {label: "Description", name: "body", widget: "markdown"}
