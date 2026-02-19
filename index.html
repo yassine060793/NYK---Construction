@@ -7,26 +7,39 @@
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root { --gold: #D4AF37; --black: #000000; --white: #ffffff; }
-        body { margin: 0; font-family: 'Cairo', sans-serif; background-color: var(--black); color: var(--white); text-align: center; }
-        header { padding: 40px 20px; border-bottom: 2px solid var(--gold); }
-        .logo { color: var(--gold); font-size: 32px; font-weight: bold; letter-spacing: 5px; }
-        .hero { padding: 100px 20px; }
-        h1 { font-size: 48px; margin-bottom: 20px; }
-        .stats { display: flex; justify-content: center; gap: 50px; padding: 50px 20px; background: #111; }
-        .stat-item h2 { color: var(--gold); font-size: 36px; margin: 0; }
-        .footer-btns { padding: 50px; }
-        .btn { padding: 15px 30px; border-radius: 25px; text-decoration: none; font-weight: bold; margin: 10px; display: inline-block; }
-        .whatsapp { background-color: #25D366; color: white; }
-        .instagram { background-color: var(--gold); color: black; }
+        :root { --gold: #D4AF37; --black: #050505; --white: #ffffff; }
+        body { margin: 0; font-family: 'Cairo', sans-serif; background-color: var(--black); color: var(--white); line-height: 1.6; }
+        
+        /* الهيدر الاحترافي */
+        header { padding: 50px 20px; border-bottom: 1px solid rgba(212, 175, 55, 0.3); background: linear-gradient(to bottom, #111, #050505); }
+        .logo { color: var(--gold); font-size: 35px; font-weight: bold; letter-spacing: 8px; margin: 0; }
+        .sub-logo { color: #888; letter-spacing: 3px; font-size: 12px; margin-top: 5px; text-transform: uppercase; }
+        
+        /* قسم الترحيب الرئيسي */
+        .hero { padding: 120px 20px; background: radial-gradient(circle, #151515 0%, #050505 100%); }
+        h1 { font-size: clamp(32px, 8vw, 55px); color: var(--white); margin-bottom: 15px; font-weight: 700; }
+        .hero p { font-size: 20px; color: var(--gold); opacity: 0.9; }
+
+        /* قسم الإحصائيات - في الأسفل كما طلبت وبشكل منطقي */
+        .stats { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px; padding: 80px 20px; background: #0a0a0a; border-top: 1px solid #1a1a1a; }
+        .stat-item { min-width: 150px; }
+        .stat-item h2 { color: var(--gold); font-size: 48px; margin: 0; font-weight: bold; }
+        .stat-item p { font-size: 18px; color: #888; margin-top: 10px; }
+
+        /* أزرار التواصل */
+        .footer-btns { padding: 60px 20px; background: #050505; }
+        .btn { padding: 16px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; margin: 10px; display: inline-block; transition: 0.3s; }
+        .whatsapp { background-color: #25D366; color: white; border: 1px solid #25D366; }
+        .instagram { border: 1px solid var(--gold); color: var(--gold); }
+        .btn:hover { transform: translateY(-3px); opacity: 0.8; }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">NYK</div>
-        <p style="color: #888;">CONSTRUCTION</p>
-        <p style="font-size: 14px; color: var(--gold);">Expert en Marbre, Granit et Rénovation depuis 2014</p>
+        <h1 class="logo">NYK</h1>
+        <div class="sub-logo">CONSTRUCTION</div>
+        <p style="font-size: 14px; color: var(--gold); margin-top: 15px;">Expert en Marbre, Granit et Rénovation depuis 2014</p>
     </header>
 
     <section class="hero">
@@ -36,35 +49,52 @@
 
     <section class="stats">
         <div class="stat-item">
-            <h2>12</h2>
+            <h2 class="counter">12</h2>
             <p>سنة خبرة</p>
         </div>
         <div class="stat-item">
-            <h2>150</h2>
+            <h2 class="counter">150</h2>
             <p>مشروع منجز</p>
         </div>
         <div class="stat-item">
-            <h2>100</h2>
+            <h2 class="counter">100</h2>
             <p>إتقان %</p>
         </div>
     </section>
 
     <div class="footer-btns">
-        <p>تواصل مع الإدارة</p>
+        <p style="margin-bottom: 30px; color: #666;">تواصل مع الإدارة مباشرة</p>
         <a href="https://wa.me/213xxxxxxxxx" class="btn whatsapp">واتساب</a>
         <a href="https://instagram.com/nyk_construction" class="btn instagram">إنستغرام</a>
     </div>
 
     <script>
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", user => {
-          if (!user) {
-            window.netlifyIdentity.on("login", () => {
-              document.location.href = "/admin/";
+        // كود تحريك الأرقام الاحترافي
+        function animateCounters() {
+            document.querySelectorAll('.counter').forEach(counter => {
+                const target = +counter.innerText;
+                let count = 0;
+                const increment = target / 50;
+                const update = () => {
+                    count += increment;
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count);
+                        setTimeout(update, 40);
+                    } else { counter.innerText = target; }
+                };
+                update();
             });
-          }
-        });
-      }
+        }
+        window.addEventListener('DOMContentLoaded', animateCounters);
+
+        // تفعيل الهوية للدخول للأدمن
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => { document.location.href = "/admin/"; });
+                }
+            });
+        }
     </script>
 </body>
 </html>
