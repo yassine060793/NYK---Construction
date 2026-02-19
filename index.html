@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NYK Construction | فنون التشطيب العصري والديكور - جيجل</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root { --gold: #d4af37; --dark: #0a0a0a; --gray: #1a1a1a; --whatsapp: #25d366; }
+        body { background-color: var(--dark); color: white; font-family: 'Cairo', sans-serif; overflow-x: hidden; scroll-behavior: smooth; }
+        
+        /* شريط الاتصال العلوي */
+        .top-bar { background: var(--gold); color: black; padding: 8px 0; font-weight: bold; font-size: 0.9rem; }
+        .top-bar a { color: black; text-decoration: none; margin-right: 15px; }
+
+        /* الهيدر */
+        .navbar { border-bottom: 1px solid rgba(212, 175, 55, 0.3); background: rgba(10, 10, 10, 0.95); }
+        .navbar-brand { color: var(--gold) !important; font-weight: 900; font-size: 1.8rem; }
+
+        /* الواجهة الرئيسية */
+        .hero { 
+            height: 95vh; 
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('https://images.unsplash.com/photo-1516880711640-ef7db81be3e1?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover; background-position: center;
+            display: flex; align-items: center; text-align: right;
+        }
+        .hero h1 { font-size: 4rem; font-weight: 900; color: var(--gold); line-height: 1.2; }
+        .hero p { border-right: 5px solid var(--gold); padding-right: 20px; max-width: 700px; }
+
+        /* قسم الخدمات (Finition) */
+        .service-card { background: var(--gray); border: 1px solid #333; padding: 30px; transition: 0.4s; height: 100%; }
+        .service-card:hover { border-color: var(--gold); transform: translateY(-10px); }
+        .service-card i { font-size: 2.5rem; color: var(--gold); margin-bottom: 20px; display: block; }
+
+        /* قسم معايير الجودة (Technical Standards) */
+        .tech-section { background: white; color: black; padding: 80px 0; }
+        .tech-item { border-right: 4px solid var(--gold); padding-right: 15px; margin-bottom: 30px; }
+        .tech-item h4 { font-weight: 900; color: #111; }
+
+        /* أيقونة واتساب العائمة */
+        .whatsapp-float {
+            position: fixed; width: 60px; height: 60px; bottom: 40px; right: 40px;
+            background-color: var(--whatsapp); color: #FFF; border-radius: 50px;
+            text-align: center; font-size: 30px; box-shadow: 2px 5px 15px rgba(0,0,0,0.3); z-index: 1000;
+            display: flex; align-items: center; justify-content: center; text-decoration: none;
+        }
+
+        /* الخريطة والعدادات */
+        .stats-section { padding: 60px 0; background: var(--gray); border-bottom: 1px solid var(--gold); }
+        .stat-number { font-size: 3.5rem; font-weight: 900; color: var(--gold); }
+        .map-container { border: 2px solid var(--gold); }
+
+        footer { padding: 60px 0 20px; background: #000; border-top: 2px solid var(--gold); }
+    </style>
+</head>
+<body>
+
+    <a href="https://wa.me/213773653894" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+    <div class="top-bar d-none d-md-block">
+        <div class="container d-flex justify-content-between">
+            <div><i class="fas fa-map-marker-alt"></i> الجمعة بني حبيبي، جيجل، الجزائر</div>
+            <div>
+                <a href="tel:+213773653894"><i class="fas fa-phone"></i> 0773653894</a>
+                <a href="https://wa.me/213773653894" target="_blank"><i class="fab fa-whatsapp"></i> تواصل فوري</a>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">NYK CONSTRUCTION</a>
+            <button class="navbar-toggler bg-warning" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link text-white" href="#services">خدماتنا</a></li>
+                    <li class="nav-link text-white px-3">|</li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#quality">معايير الجودة</a></li>
+                    <li class="nav-item ms-lg-4"><a href="https://wa.me/213773653894" class="btn btn-warning fw-bold">اطلب معاينة لمشروعك</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h1 class="animate__animated animate__fadeInRight">NYK CONSTRUCTION <br><span style="color: white;">فنون التشطيب العصري</span></h1>
+            <p class="mt-4 fs-4">نحن لا نركب البلاط فقط، نحن نصمم لوحات فنية تدوم طويلاً. تخصصنا "La Finition" بأعلى المعايير العالمية في ولاية جيجل.</p>
+        </div>
+    </header>
+
+    <section class="stats-section text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4"><span class="stat-number" data-target="50000">0</span><br><span>متر مربع من الأرضيات</span></div>
+                <div class="col-md-4"><span class="stat-number" data-target="120">0</span><br><span>حمام مودرن منجز</span></div>
+                <div class="col-md-4"><span class="stat-number" data-target="100">0</span>%<br><span>دقة في المواعيد</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="container py-5">
+        <h2 class="text-center gold-text mb-5 fw-bold">تخصصاتنا في الإنهاء والتشطيب</h2>
+        <div class="row g-4">
+            <div class="col-md-3">
+                <div class="service-card text-center">
+                    <i class="fas fa-layer-group"></i>
+                    <h4>الأرضيات الكبيرة</h4>
+                    <p>تركيب بورسلان ورخام (Grand Format) بدقة الليزر لضمان استواء مثالي.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="service-card text-center">
+                    <i class="fas fa-bath"></i>
+                    <h4>جدران وحمامات</h4>
+                    <p>تصميم وتجهيز Faïence بنظام Open Space وأحدث الموديلات العالمية.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="service-card text-center">
+                    <i class="fas fa-home"></i>
+                    <h4>تلبيس الواجهات</h4>
+                    <p>تنفيذ واجهات الجرانيت والحجر الطبيعي المقاوم لعوامل الرطوبة والزمن.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="service-card text-center">
+                    <i class="fas fa-stairs"></i>
+                    <h4>أعمال الدرج</h4>
+                    <p>تفصيل السلالم بنظام Nez de marche الاحترافي مع الإضاءة المخفية.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quality" class="tech-section">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold text-dark">لماذا يختار المحترفون NYK؟</h2>
+            <div class="row">
+                <div class="col-md-6 tech-item">
+                    <h4>دقة الليزر (Planéité)</h4>
+                    <p>نضمن استقامة الأسطح بنسبة 100% لتجنب أي اعوجاج أو عيوب بصرية.</p>
+                </div>
+                <div class="col-md-6 tech-item">
+                    <h4>عزل مائي متطور (Étanchéité)</h4>
+                    <p>نقوم بعزل الحمامات والشرفات قبل التركيب لحماية المنشأة من التسربات.</p>
+                </div>
+                <div class="col-md-6 tech-item">
+                    <h4>مواد لاصقة إيبوكسية</h4>
+                    <p>استخدام أفضل أنواع Ciment-colle والمفاصل المقاومة للبكتيريا والرطوبة.</p>
+                </div>
+                <div class="col-md-6 tech-item">
+                    <h4>الجلي والتلميع (Lustrage)</h4>
+                    <p>إنهاء العمل بجلسات تلميع مرآتية تعطي الرخام بريقه الطبيعي الأصلي.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container my-5">
+        <h2 class="text-center gold-text mb-4 fw-bold">مقرنا الجغرافي</h2>
+        <div class="row g-0 map-container shadow-lg">
+            <div class="col-md-4 bg-gray p-5">
+                <h3 class="gold-text fw-bold">فرع جيجل</h3>
+                <p>بلدية الجمعة بني حبيبي</p>
+                <hr class="bg-gold">
+                <p><i class="fas fa-phone gold-text me-2"></i> 0773653894</p>
+                <a href="http://googleusercontent.com/maps.google.com/4" target="_blank" class="btn btn-warning w-100 mt-4 fw-bold">توجيه عبر GPS</a>
+            </div>
+            <div class="col-md-8">
+                <iframe class="w-100" height="400" frameborder="0" src="http://googleusercontent.com/maps.google.com/5"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <main class="container py-5" id="updates">
+        <div class="d-flex justify-content-between align-items-center mb-5">
+            <h2 class="gold-text fw-bold m-0">آخر المشاريع والشروحات</h2>
+            <div class="bg-warning text-dark px-3 py-1 fw-bold">تحديثات يومية</div>
+        </div>
+        <div id="content-container" class="row">
+            <p class="text-muted text-center">يتم الآن مزامنة الصور الجديدة من لوحة التحكم...</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container text-center">
+            <h4 class="gold-text fw-bold mb-4">NYK CONSTRUCTION</h4>
+            <div class="mb-4">
+                <a href="#" class="text-muted text-decoration-none px-3 small">سياسة الخصوصية</a>
+                <a href="#" class="text-muted text-decoration-none px-3 small">اتفاقية الخدمة</a>
+            </div>
+            <p class="small text-muted">الجمعة بني حبيبي، جيجل | الجزائر &copy; 2026</p>
+        </div>
+    </footer>
+
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+        // العدادات
+        const counters = document.querySelectorAll('.stat-number');
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + (target / 150));
+                    setTimeout(updateCount, 1);
+                } else { counter.innerText = target.toLocaleString() + (target > 100 ? "+" : ""); }
+            };
+            updateCount();
+        });
+    </script>
+</body>
+</html>
