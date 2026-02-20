@@ -2,7 +2,7 @@ backend:
   name: github
   repo: yassine060793/NYK---Construction
   branch: main
-  base_url: https://auth.decapcms.org
+  base_url: https://decap-auth.vercel.app # بوابة مستقرة مخصصة لمنصة Vercel
 
 media_folder: "assets/images/uploads"
 public_folder: "/assets/images/uploads"
@@ -17,7 +17,6 @@ collections:
       - { label: "عنوان المشروع", name: "title", widget: "string" }
       - { label: "تاريخ العمل", name: "date", widget: "datetime" }
       - { label: "الصورة الرئيسية", name: "featured_image", widget: "image" }
-      - { label: "وصف الصورة/العمل", name: "image_desc", widget: "string" }
       - { label: "نوع الخدمة", name: "category", widget: "select", options: ["رخام وڨرانيت", "جبس جدران", "أرضيات كبيرة", "درج وسلالم", "فينيسيون عامة"] }
-      - { label: "تفاصيل المشروع الكاملة", name: "body", widget: "markdown" }
-
+      - { label: "وصف المشروع", name: "body", widget: "markdown" }
+      
