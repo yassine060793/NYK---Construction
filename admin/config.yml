@@ -1,18 +1,22 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: yassine060793/NYK---Construction
   branch: main
+  base_url: https://nyk-construction.vercel.app # هذا السطر ضروري جداً لـ Vercel
 
-media_folder: "images"
-public_folder: "/images"
+media_folder: "assets/images/uploads"
+public_folder: "/assets/images/uploads"
 
 collections:
-  - name: "news"
-    label: "التحديثات اليومية"
-    folder: "content/news"
+  - name: "projects"
+    label: "معرض مشاريعنا"
+    folder: "_posts/projects"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {label: "العنوان", name: "title", widget: "string"}
-      - {label: "التاريخ", name: "date", widget: "datetime"}
-      - {label: "صورة النوع", name: "image", widget: "image"}
-      - {label: "وصف الرخام والشرح", name: "body", widget: "markdown"}
+      - { label: "عنوان المشروع", name: "title", widget: "string" }
+      - { label: "تاريخ العمل", name: "date", widget: "datetime" }
+      - { label: "الصورة الرئيسية", name: "featured_image", widget: "image" }
+      - { label: "وصف الصورة/العمل", name: "image_desc", widget: "string" }
+      - { label: "نوع الخدمة", name: "category", widget: "select", options: ["رخام وجرانيت", "تلبيس جدران", "أرضيات كبيرة", "درج وسلالم", "فينيسيون عامة"] }
+      - { label: "تفاصيل المشروع الكاملة", name: "body", widget: "markdown" }
