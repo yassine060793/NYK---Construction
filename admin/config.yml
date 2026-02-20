@@ -2,20 +2,7 @@ backend:
   name: github
   repo: yassine060793/NYK---Construction
   branch: main
-  # هذه الروابط تخبر الموقع أن يستخدم بوابتك الخاصة التي أنشأتها في Vercel
+  # الآن نستخدم رابط موقعك الحقيقي على Vercel
   base_url: https://nyk-construction.vercel.app
   auth_endpoint: /api/auth
-
-media_folder: "assets/images/uploads"
-public_folder: "/assets/images/uploads"
-
-collections:
-  - name: "projects"
-    label: "معرض مشاريعنا"
-    folder: "_posts/projects"
-    create: true
-    fields:
-      - { label: "عنوان المشروع", name: "title", widget: "string" }
-      - { label: "الصورة الرئيسية", name: "featured_image", widget: "image" }
-      - { label: "وصف المشروع", name: "body", widget: "markdown" }
 
