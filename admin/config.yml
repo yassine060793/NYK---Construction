@@ -2,8 +2,9 @@ backend:
   name: github
   repo: yassine060793/NYK---Construction
   branch: main
-  # في 2026، نترك base_url فارغاً ليعتمد النظام على OAuth الخاص بـ GitHub مباشرة
-  # أو نستخدم بوابة موثقة من قبل Vercel نفسه
+  # هذه الروابط تخبر الموقع أن يستخدم بوابتك الخاصة التي أنشأتها في Vercel
+  base_url: https://nyk-construction.vercel.app
+  auth_endpoint: /api/auth
 
 media_folder: "assets/images/uploads"
 public_folder: "/assets/images/uploads"
@@ -13,11 +14,8 @@ collections:
     label: "معرض مشاريعنا"
     folder: "_posts/projects"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { label: "عنوان المشروع", name: "title", widget: "string" }
-      - { label: "تاريخ العمل", name: "date", widget: "datetime" }
       - { label: "الصورة الرئيسية", name: "featured_image", widget: "image" }
-      - { label: "نوع الخدمة", name: "category", widget: "select", options: ["رخام وڨرانيت", "جبس جدران", "أرضيات كبيرة", "درج وسلالم", "فينيسيون عامة"] }
       - { label: "وصف المشروع", name: "body", widget: "markdown" }
-      
+
