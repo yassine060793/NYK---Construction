@@ -174,10 +174,10 @@
                 <p>بلدية الجمعة بني حبيبي</p>
                 <hr class="bg-gold">
                 <p><i class="fas fa-phone gold-text me-2"></i> 0773653894</p>
-                <a href="http://googleusercontent.com/maps.google.com/4" target="_blank" class="btn btn-warning w-100 mt-4 fw-bold">توجيه عبر GPS</a>
+                <a href="https://maps.google.com" target="_blank" class="btn btn-warning w-100 mt-4 fw-bold">توجيه عبر GPS</a>
             </div>
             <div class="col-md-8">
-                <iframe class="w-100" height="400" frameborder="0" src="http://googleusercontent.com/maps.google.com/5"></iframe>
+                <iframe class="w-100" height="400" frameborder="0" src="https://www.google.com/maps/embed?pb=..."></iframe>
             </div>
         </div>
     </section>
@@ -203,7 +203,16 @@
         </div>
     </footer>
 
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      if (window.location.hash.includes("access_token")) {
+        const url = new URL(window.location.href.replace("#", "?"));
+        const token = url.searchParams.get("access_token");
+        if (token) {
+          window.localStorage.setItem("decap-cms-user", JSON.stringify({ token }));
+          window.location.href = "/admin/";
+        }
+      }
+    </script>
     <script>
         // العدادات
         const counters = document.querySelectorAll('.stat-number');
@@ -220,4 +229,5 @@
         });
     </script>
 </body>
-</html>
+                </html>
+    
