@@ -3,7 +3,7 @@ backend:
   repo: yassine060793/NYK---Construction
   branch: main
   base_url: https://nyk-construction.vercel.app
-  auth_endpoint: /api/auth
+  auth_endpoint: auth
 
 media_folder: "assets/images/uploads"
 public_folder: "/assets/images/uploads"
