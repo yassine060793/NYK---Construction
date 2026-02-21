@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: yassine060793/NYK---Construction
+  repo: yassine060793/NYK-Construction
   branch: main
   base_url: https://nyk-construction.vercel.app
   auth_endpoint: /api/auth
