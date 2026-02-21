@@ -2,7 +2,34 @@ backend:
   name: github
   repo: yassine060793/NYK---Construction
   branch: main
-  # الآن نستخدم رابط موقعك الحقيقي على Vercel
   base_url: https://nyk-construction.vercel.app
   auth_endpoint: /api/auth
 
+media_folder: "assets/images/uploads"
+public_folder: "/assets/images/uploads"
+
+collections:
+  - name: "projects"
+    label: "أعمالنا (المشاريع)"
+    folder: "_projects"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "عنوان المشروع", name: "title", widget: "string" }
+      - { 
+          label: "تصنيف القسم", 
+          name: "category", 
+          widget: "select", 
+          options: [
+            { label: "المطابخ", value: "kitchens" },
+            { label: "الحمامات", value: "bathrooms" },
+            { label: "غرف النوم", value: "bedrooms" },
+            { label: "التصاميم الخارجية", value: "exterior" }
+          ] 
+        }
+      # هذا هو الزر الجديد الذي سيتحكم في الظهور في الصفحة العامة
+      - { label: "عرض في الصفحة الرئيسية؟", name: "featured", widget: "boolean", default: false }
+      
+      - { label: "الصورة الأساسية", name: "thumbnail", widget: "image" }
+      - { label: "شرح تفصيلي", name: "body", widget: "markdown" }
+      - { label: "تاريخ الإضافة", name: "date", widget: "datetime" }
