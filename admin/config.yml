@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: yassine060793/NYK--Construction
+  repo: yassine060793/NYK---Construction
   branch: main
   base_url: https://nyk-construction.vercel.app
   auth_endpoint: /api/auth
@@ -27,9 +27,7 @@ collections:
             { label: "التصاميم الخارجية", value: "exterior" }
           ] 
         }
-      # هذا هو الزر الجديد الذي سيتحكم في الظهور في الصفحة العامة
       - { label: "عرض في الصفحة الرئيسية؟", name: "featured", widget: "boolean", default: false }
-      
       - { label: "الصورة الأساسية", name: "thumbnail", widget: "image" }
       - { label: "شرح تفصيلي", name: "body", widget: "markdown" }
       - { label: "تاريخ الإضافة", name: "date", widget: "datetime" }
