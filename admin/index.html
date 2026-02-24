@@ -4,15 +4,33 @@
   <meta charset="UTF-8">
   <title>Admin Panel</title>
   <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 40px; }
+    h1 { color: #333; }
+    #loginBtn { padding: 10px 20px; font-size: 16px; cursor: pointer; }
+  </style>
 </head>
 <body>
   <h1>لوحة التحكم</h1>
   <p>إذا رأيت هذه الصفحة، CMS جاهز للتحميل.</p>
 
+  <!-- زر تسجيل الدخول عبر GitHub -->
+  <button id="loginBtn">تسجيل الدخول عبر GitHub</button>
+
   <script>
-    CMS.init({
-      config: "/admin/config.yml"
+    const loginBtn = document.getElementById('loginBtn');
+
+    loginBtn.addEventListener('click', () => {
+      // إعادة التوجيه إلى API auth
+      window.location.href = '/api/auth';
     });
+
+    // إذا كان المستخدم عاد من GitHub بعد الموافقة، نقوم بتهيئة CMS
+    if (window.location.pathname === '/admin') {
+      CMS.init({
+        config: "/admin/config.yml"
+      });
+    }
   </script>
 </body>
 </html>
