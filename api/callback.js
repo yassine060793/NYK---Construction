@@ -14,6 +14,6 @@ export default async function handler(req, res) {
   const tokenData = await tokenRes.json();
   if (tokenData.error) return res.status(400).json({ error: tokenData.error });
 
-  // تخزين token مؤقتًا أو إعادة التوجيه للوحة التحكم
+  // إعادة التوجيه إلى لوحة التحكم بعد تسجيل الدخول
   res.redirect('/admin');
 }
