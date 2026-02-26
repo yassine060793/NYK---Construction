@@ -1,10 +1,17 @@
+# =========================
+# ملف config.yml النهائي
+# لوحة الإدارة – NYK Construction
+# =========================
+
 backend:
   name: github
   repo: yassine060793/NYK---Construction
   branch: main
+  client_id: "Ov23liXULp5aMe8osq27"      # ضع هنا Client ID الخاص بتطبيق GitHub
+  client_secret: "2f9b1fab3859db5e79b97f020a206af92471f2e4"  # ضع هنا Client Secret
 
-media_folder: "images/uploads"
-public_folder: "/images/uploads"
+media_folder: "images/uploads"   # المجلد الفعلي لتخزين الصور
+public_folder: "/images/uploads" # المسار الذي يستخدمه الموقع لعرض الصور
 
 site_url: https://nyk-construction.vercel.app
 
@@ -15,7 +22,6 @@ collections:
     folder: "content/projects"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-
     fields:
       - { label: "عنوان المشروع", name: "title", widget: "string" }
       - { label: "الوصف", name: "body", widget: "markdown" }
@@ -26,7 +32,7 @@ collections:
     label: "الأخبار"
     folder: "content/news"
     create: true
-
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { label: "عنوان الخبر", name: "title", widget: "string" }
       - { label: "نص الخبر", name: "body", widget: "markdown" }
