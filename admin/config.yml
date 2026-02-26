@@ -2,15 +2,33 @@ backend:
   name: github
   repo: yassine060793/NYK---Construction
   branch: main
-  auth_scope: repo
-media_folder: "static/images/uploads"
+
+media_folder: "images/uploads"
 public_folder: "/images/uploads"
+
+site_url: https://nyk-construction.vercel.app
+
 collections:
-  - name: "posts"
-    label: "Posts"
-    folder: "content/posts"
+
+  - name: "projects"
+    label: "المشاريع"
+    folder: "content/projects"
     create: true
-    slug: "{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - { label: "عنوان المشروع", name: "title", widget: "string" }
+      - { label: "الوصف", name: "body", widget: "markdown" }
+      - { label: "صورة رئيسية", name: "image", widget: "image" }
+      - { label: "تاريخ", name: "date", widget: "datetime" }
+
+  - name: "news"
+    label: "الأخبار"
+    folder: "content/news"
+    create: true
+
+    fields:
+      - { label: "عنوان الخبر", name: "title", widget: "string" }
+      - { label: "نص الخبر", name: "body", widget: "markdown" }
+      - { label: "صورة", name: "image", widget: "image" }
+      - { label: "تاريخ", name: "date", widget: "datetime" }
