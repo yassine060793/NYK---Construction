@@ -1,14 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8" />
   <title>لوحة إدارة NYK</title>
 
+  <!-- Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 
   <style>
-    body { font-family: Arial, sans-serif; }
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #111; color: #fff; }
+    #nc-root { padding: 20px; }
   </style>
 </head>
-<body></body>
+<body>
+  <!-- عنصر حاوية CMS -->
+  <div id="nc-root"></div>
+
+  <script>
+    // تهيئة Decap CMS وربطه بالملف config.yml
+    CMS.init({
+      config: "/admin/config.yml",
+      root: "#nc-root"
+    });
+  </script>
+</body>
 </html>
