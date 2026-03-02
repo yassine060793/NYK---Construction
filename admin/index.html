@@ -6,55 +6,37 @@
   
   <script>
     window.onerror = function(msg, url, line) {
-      alert("⚠️ خطأ في تحميل لوحة الإدارة:\n" + msg + "\nالموقع: " + url + "\nالسطر: " + line);
+      alert("⚠️ خطأ في التحميل:\n" + msg + "\nالموقع: " + url + "\nالسطر: " + line);
       return false;
     };
   </script>
 
-  <script src="https://unpkg.com/decap-cms@3.0.0/dist/decap-cms.js"></script>
+  <script src="https://unpkg.com/decap-cms@3.0.0/dist/decap-cms.js" defer></script>
 </head>
 <body>
   <div id="nc-root"></div>
   <script>
-    CMS.init({
-      config: {
-        backend: {
-          name: "github",
-          repo: "yassine060793/NYK---Construction",
-          branch: "main",
-          auth_endpoint: "auth"
-        },
-        media_folder: "images/uploads",
-        public_folder: "/images/uploads",
-        site_url: "https://nyk-construction.vercel.app",
-        collections: [
-          {
-            name: "projects",
-            label: "المشاريع",
-            folder: "content/projects",
-            create: true,
-            slug: "{{year}}-{{month}}-{{day}}-{{slug}}",
-            fields: [
-              { label: "عنوان المشروع", name: "title", widget: "string" },
-              { label: "الوصف", name: "body", widget: "markdown" },
-              { label: "صورة رئيسية", name: "image", widget: "image" },
-              { label: "التاريخ", name: "date", widget: "datetime" }
-            ]
-          },
-          {
-            name: "news",
-            label: "الأخبار",
-            folder: "content/news",
-            create: true,
-            slug: "{{year}}-{{month}}-{{day}}-{{slug}}",
-            fields: [
-              { label: "عنوان الخبر", name: "title", widget: "string" },
-              { label: "نص الخبر", name: "body", widget: "markdown" },
-              { label: "صورة", name: "image", widget: "image" },
-              { label: "التاريخ", name: "date", widget: "datetime" }
+    // التأكد من تحميل المكتبة تماماً قبل تشغيلها
+    window.addEventListener('load', function() {
+      if (typeof CMS !== 'undefined') {
+        CMS.init({
+          config: {
+            backend: {
+              name: "github",
+              repo: "yassine060793/NYK---Construction",
+              branch: "main"
+            },
+            media_folder: "images/uploads",
+            public_folder: "/images/uploads",
+            site_url: "https://nyk-construction.vercel.app",
+            collections: [
+              { name: "projects", label: "المشاريع", folder: "content/projects", create: true, fields: [{label: "Title", name: "title", widget: "string"}] },
+              { name: "news", label: "الأخبار", folder: "content/news", create: true, fields: [{label: "Title", name: "title", widget: "string"}] }
             ]
           }
-        ]
+        });
+      } else {
+        alert("خطأ: لم يتم تحميل مكتبة CMS. تحقق من اتصالك بالإنترنت.");
       }
     });
   </script>
