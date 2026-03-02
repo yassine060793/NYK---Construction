@@ -6,18 +6,15 @@
   
   <script>
     window.onerror = function(msg, url, line) {
-      alert("⚠️ خطأ تقني مكتشف:\nالرسالة: " + msg + "\nالملف: " + url + "\nالسطر: " + line);
+      alert("⚠️ خطأ تقني مكتشف:\nالرسالة: " + msg + "\nالموقع: " + url + "\nالسطر: " + line);
       return false;
     };
   </script>
 </head>
 <body>
   <div id="nc-root"></div>
-  
   <script src="https://unpkg.com/decap-cms@3.0.0/dist/decap-cms.js"></script>
-  
   <script>
-    // التشغيل مع التحقق من وجود CMS
     var checkExist = setInterval(function() {
       if (typeof CMS !== 'undefined') {
         clearInterval(checkExist);
@@ -27,8 +24,10 @@
               backend: {
                 name: "github",
                 repo: "yassine060793/NYK-Construction",
-                branch: "main"
+                branch: "main",
+                base_url: "https://nyk-construction.vercel.app"
               },
+              client_id: "Ov23liXULp5aMe8osq27",
               media_folder: "images/uploads",
               public_folder: "/images/uploads",
               site_url: "https://nyk-construction.vercel.app",
@@ -39,7 +38,7 @@
             }
           });
         } catch (e) {
-          alert("⚠️ خطأ في الإعدادات: " + e.message);
+          alert("⚠️ خطأ في إعدادات CMS: " + e.message);
         }
       }
     }, 200);
