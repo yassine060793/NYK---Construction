@@ -2,41 +2,45 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <title>NYK - لوحة الإدارة</title>
+  <title>NYK Admin - لوحة التحكم</title>
   <script>
-    // 1. منع النظام من البحث عن ملف config.yml الخارجي
-    window.CMS_MANUAL_INIT = true;
-
-    // 2. كاشف أخطاء عام
+    // 1. الحارس: كاشف أخطاء التحميل العام
     window.onerror = function(msg, url, line) {
-      alert("⚠️ خطأ تقني: " + msg + "\nالسطر: " + line);
+      alert("⚠️ خطأ تقني مكتشف:\n" + msg + "\nفي السطر: " + line);
       return false;
     };
+    
+    // 2. إجبار النظام على استخدام إعداداتنا الداخلية وعدم البحث عن ملف خارجي
+    window.CMS_MANUAL_INIT = true; 
   </script>
 </head>
 <body>
   <div id="nc-root"></div>
   <script src="https://unpkg.com/decap-cms@3.0.0/dist/decap-cms.js"></script>
   <script>
-    // 3. تهيئة الإعدادات مباشرة هنا
-    CMS.init({
-      config: {
-        backend: {
-          name: "github",
-          repo: "yassine060793/NYK-Construction",
-          branch: "main",
-          auth_endpoint: "https://github.com/login/oauth/authorize"
-        },
-        client_id: "Ov23liXULp5aMe8osq27",
-        site_url: "https://nyk-construction.vercel.app",
-        media_folder: "images/uploads",
-        public_folder: "/images/uploads",
-        collections: [
-          { name: "projects", label: "المشاريع", folder: "content/projects", create: true, fields: [{label: "Title", name: "title", widget: "string"}] },
-          { name: "news", label: "الأخبار", folder: "content/news", create: true, fields: [{label: "Title", name: "title", widget: "string"}] }
-        ]
-      }
-    });
+    // 3. محاولة التهيئة مع التقاط أي خطأ في الإعدادات
+    try {
+      CMS.init({
+        config: {
+          backend: {
+            name: "github",
+            repo: "yassine060793/NYK-Construction",
+            branch: "main",
+            auth_endpoint: "https://github.com/login/oauth/authorize"
+          },
+          client_id: "Ov23liXULp5aMe8osq27",
+          site_url: "https://nyk-construction.vercel.app",
+          media_folder: "images/uploads",
+          public_folder: "/images/uploads",
+          collections: [
+            { name: "projects", label: "المشاريع", folder: "content/projects", create: true, fields: [{label: "Title", name: "title", widget: "string"}] },
+            { name: "news", label: "الأخبار", folder: "content/news", create: true, fields: [{label: "Title", name: "title", widget: "string"}] }
+          ]
+        }
+      });
+    } catch (e) {
+      alert("⚠️ خطأ في تهيئة CMS:\n" + e.message);
+    }
   </script>
 </body>
 </html>
