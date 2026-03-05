@@ -4,21 +4,21 @@
   <meta charset="UTF-8" />
   <title>NYK Admin - لوحة التحكم</title>
   <script>
-    // 1. الحارس: كاشف أخطاء التحميل العام
+    // 1. كاشف الأخطاء (الحارس) - سيخبرك فوراً إذا رفض فيرسال أو جيت هاب الاتصال
     window.onerror = function(msg, url, line) {
-      alert("⚠️ خطأ تقني مكتشف:\n" + msg + "\nفي السطر: " + line);
+      alert("⚠️ خطأ تقني مكتشف:\nالرسالة: " + msg + "\nالسطر: " + line);
       return false;
     };
-    
-    // 2. إجبار النظام على استخدام إعداداتنا الداخلية وعدم البحث عن ملف خارجي
-    window.CMS_MANUAL_INIT = true; 
+
+    // 2. إلغاء البحث عن ملف config.yml (حل مشكلة الـ 404 في ريسورس فيرسال)
+    window.CMS_MANUAL_INIT = true;
   </script>
 </head>
 <body>
   <div id="nc-root"></div>
   <script src="https://unpkg.com/decap-cms@3.0.0/dist/decap-cms.js"></script>
   <script>
-    // 3. محاولة التهيئة مع التقاط أي خطأ في الإعدادات
+    // 3. كتابة الإعدادات يدوياً لضمان الترابط الكامل
     try {
       CMS.init({
         config: {
@@ -33,13 +33,25 @@
           media_folder: "images/uploads",
           public_folder: "/images/uploads",
           collections: [
-            { name: "projects", label: "المشاريع", folder: "content/projects", create: true, fields: [{label: "Title", name: "title", widget: "string"}] },
-            { name: "news", label: "الأخبار", folder: "content/news", create: true, fields: [{label: "Title", name: "title", widget: "string"}] }
+            { 
+              name: "projects", 
+              label: "المشاريع", 
+              folder: "content/projects", 
+              create: true, 
+              fields: [{label: "Title", name: "title", widget: "string"}] 
+            },
+            { 
+              name: "news", 
+              label: "الأخبار", 
+              folder: "content/news", 
+              create: true, 
+              fields: [{label: "Title", name: "title", widget: "string"}] 
+            }
           ]
         }
       });
     } catch (e) {
-      alert("⚠️ خطأ في تهيئة CMS:\n" + e.message);
+      alert("⚠️ خطأ في تهيئة النظام: " + e.message);
     }
   </script>
 </body>
