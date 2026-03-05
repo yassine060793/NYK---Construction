@@ -1,8 +1,7 @@
-// إعدادات لوحة التحكم لرفع الصور وتصنيفها
 export default {
   name: 'default',
   title: 'NYK Admin Center',
-  projectId: 'your_project_id', // سأعلمك كيف تحصل عليه لاحقاً
+  projectId: '95iruxk0', // تم وضع الـ ID الخاص بك هنا
   dataset: 'production',
   schema: {
     types: [
